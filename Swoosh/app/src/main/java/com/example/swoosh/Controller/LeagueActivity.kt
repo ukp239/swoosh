@@ -17,7 +17,19 @@ class LeagueActivity : BaseActivity() {
 
 
     var player = Player("", "")
-    var selectedLeague = ""
+    //var selectedLeague = ""
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putParcelable(EXTRA_PLAYER, player) //saving the player here
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        if (savedInstanceState != null){
+            player = savedInstanceState.getParcelable<Player>(EXTRA_PLAYER)!!
+        }
+    }
 
     fun onMensClicked (view: View){
         womensLeagueBtn.isChecked = false
