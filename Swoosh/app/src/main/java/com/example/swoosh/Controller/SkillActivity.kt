@@ -18,7 +18,7 @@ class SkillActivity : BaseActivity() {
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putParcelable(EXTRA_PLAYER, player)
-    }
+    } //for orientation change
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +32,7 @@ class SkillActivity : BaseActivity() {
         if(savedInstanceState != null){
             player = savedInstanceState.getParcelable<Player>(EXTRA_PLAYER)!!
         }
-    }
+    } //restoring post orientation change
 
 
     fun onBallerClick(view: View){

@@ -21,15 +21,15 @@ class LeagueActivity : BaseActivity() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putParcelable(EXTRA_PLAYER, player) //saving the player here
-    }
+        outState.putParcelable(EXTRA_PLAYER, player) //saving the player here; for orientation change
+    } //this is done so that the Player variable is not lost when screen is rotated
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
         if (savedInstanceState != null){
             player = savedInstanceState.getParcelable<Player>(EXTRA_PLAYER)!!
         }
-    }
+    } //reading the player info here from previous instance of the activity
 
     fun onMensClicked (view: View){
         womensLeagueBtn.isChecked = false
@@ -59,7 +59,7 @@ class LeagueActivity : BaseActivity() {
             skillActivity.putExtra(EXTRA_PLAYER, player) //Extra League is global constant
             startActivity(skillActivity)
         } else {
-            Toast.makeText(this, "Please select a league ", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Please select a league ", Toast.LENGTH_SHORT).show() //small pop up
         }
 
     }

@@ -3,7 +3,7 @@ package com.example.swoosh.Model
 import android.os.Parcel
 import android.os.Parcelable
 
-class Player constructor(var league: String, var skill: String ): Parcelable{
+class Player constructor(var league: String, var skill: String ): Parcelable{ //put parcelable and alt enter, everything else will automatically come
     constructor(parcel: Parcel) : this(
         parcel.readString().toString(),
         parcel.readString().toString()
